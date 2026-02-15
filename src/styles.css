@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient-bebe-soft text-gray-900 transition-colors duration-200;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  @apply bg-gradient-to-br from-slate-950 via-purple-900 to-pink-950 text-slate-50;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl bg-gradient-bebe-vibrant text-white font-medium hover:shadow-2xl dark:bg-gradient-bebe-warm dark:hover:shadow-pink-500/50 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl bg-gradient-to-r from-baby-pink-100 to-baby-pink-200 dark:from-baby-pink-900/40 dark:to-baby-pink-800/40 text-baby-pink-900 dark:text-baby-pink-100 font-medium hover:from-baby-pink-200 hover:to-baby-pink-300 dark:hover:from-baby-pink-900/60 dark:hover:to-baby-pink-800/60 transition-all;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl border-2 border-baby-pink-400 text-baby-pink-600 dark:text-baby-pink-300 font-medium hover:bg-gradient-to-r hover:from-baby-pink-50 hover:to-baby-pink-100 dark:hover:from-baby-pink-950/30 dark:hover:to-baby-pink-900/30 transition-all;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-3 py-2 rounded-lg text-gray-700 dark:text-baby-pink-300 hover:bg-gradient-to-r hover:from-baby-pink-100/50 hover:to-baby-pink-200/50 dark:hover:from-baby-pink-800/30 dark:hover:to-baby-pink-700/30 transition-colors;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border-2 border-baby-pink-300 dark:border-baby-pink-700 rounded-xl bg-white dark:bg-slate-900 text-gray-900 dark:text-slate-50 focus:outline-none focus:ring-2 focus:ring-baby-pink-500 dark:focus:ring-baby-pink-400 focus:border-transparent transition-all placeholder-gray-400 dark:placeholder-slate-500 shadow-sm hover:border-baby-pink-400 dark:hover:border-baby-pink-600;
+  }
+
+  .card {
+    @apply bg-gradient-to-br from-white to-baby-pink-50 dark:from-slate-900 dark:to-baby-pink-900/30 border-2 border-baby-pink-200 dark:border-baby-pink-700/50 rounded-2xl shadow-lg hover:shadow-2xl hover:border-baby-pink-300 dark:hover:border-baby-pink-600 transition-all hover:-translate-y-1;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold bg-gradient-to-r from-baby-pink-600 via-baby-pink-500 to-baby-pink-600 bg-clip-text text-transparent drop-shadow-sm;
+  }
+
+  .section-subtitle {
+    @apply text-gray-600 dark:text-slate-400;
+  }
+}
+
+/* Custom animations for pretty effects */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 6s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-baby-pink-600 via-baby-pink-500 to-baby-pink-600 bg-clip-text text-transparent font-bold;
+}
+
+/* Soft glow effect */
+.glow-bebe {
+  @apply shadow-lg shadow-baby-pink-300/50 dark:shadow-baby-pink-500/30;
+}
+
+/* Beautiful divider */
+.divider-bebe {
+  @apply bg-gradient-to-r from-transparent via-baby-pink-300 to-transparent dark:via-baby-pink-600 h-0.5;
+}
+
+/* Toast animations */
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutTop {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.animate-toast-in {
+  animation: slideInTop 0.3s ease-out;
+}
+
+.animate-toast-out {
+  animation: slideOutTop 0.3s ease-in;
+}
